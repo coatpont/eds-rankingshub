@@ -1,0 +1,61 @@
+/* cards-feature -- 6 icon-led feature cards.
+   Source: https://rankingshub.app/ #features .feature-grid
+   NOTE: source icons were inline SVG data-URIs that did not survive import.
+   The empty image cell is decorated as an (empty) .cards-feature-card-body and
+   is collapsed so cards lead cleanly with the title -- no broken image, no gap. */
+
+.cards-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: 1 column */
+  gap: 18px;
+}
+
+@media (width >= 600px) {
+  .cards-feature > ul {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 columns */
+  }
+}
+
+@media (width >= 900px) {
+  .cards-feature > ul {
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+  }
+}
+
+.cards-feature > ul > li {
+  background-color: var(--card, rgba(255, 255, 255, 0.025));
+  border: 1px solid var(--stroke, rgba(255, 255, 255, 0.07));
+  border-radius: 18px;
+  padding: 26px;
+}
+
+/* The empty (icon) cell collapses gracefully -- no awkward gap, no image box. */
+.cards-feature > ul > li > .cards-feature-card-body:empty {
+  display: none;
+}
+
+/* content cell holds the title + description */
+.cards-feature .cards-feature-card-body {
+  margin: 0;
+}
+
+.cards-feature .cards-feature-card-body h3 {
+  margin: 0 0 8px;
+  font-family: var(--heading-font-family, "Space Grotesk", sans-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: var(--ink, #eef3f8);
+}
+
+.cards-feature .cards-feature-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family, "Hanken Grotesk", system-ui, sans-serif);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted, #9fb0c0);
+}

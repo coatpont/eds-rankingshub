@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-sport",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-25T11:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://rankingshub.app/",
+    "originPage": "RankingsHub marketing landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "sport-grid",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + federation label + sport name",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "image-led category grids",
+      "thumbnail cards with a small overline label and title",
+      "sport/topic selection grids"
+    ],
+    "notSuitableFor": [
+      "icon-only feature cards without images",
+      "cards with long descriptive paragraphs and CTAs"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T11:07:00.000Z"
+  }
+}

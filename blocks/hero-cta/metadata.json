@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-cta",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-25T11:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://rankingshub.app/",
+    "originPage": "RankingsHub marketing landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "cta-banner",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + 2 CTAs",
+    "buttonCount": 2,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "end-of-page call-to-action banners",
+      "accent/gradient promo panels with app-store badges",
+      "content-only conversion banners"
+    ],
+    "notSuitableFor": [
+      "top-of-page heroes with a background image",
+      "multi-column content layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T11:07:00.000Z"
+  }
+}

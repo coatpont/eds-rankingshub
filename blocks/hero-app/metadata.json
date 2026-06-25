@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-app",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-25T11:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://rankingshub.app/",
+    "originPage": "RankingsHub marketing landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "app-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "eyebrow + heading + subheading + 2 CTAs + image",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "mobile app landing pages",
+      "product intro heroes with app-store badges",
+      "dark-theme marketing heroes with a visual"
+    ],
+    "notSuitableFor": [
+      "content-only banners without an image",
+      "light-theme article heroes"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T11:07:00.000Z"
+  }
+}

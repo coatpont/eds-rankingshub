@@ -1,0 +1,97 @@
+/* Block: hero-cta -- centered CTA banner panel.
+   Source: .cta-banner accent panel on rankingshub.app.
+   Values extracted from source computed styles. */
+
+/* The block element is the accent panel (.cta-banner equivalent). */
+.hero-cta {
+  background-color: var(--light-color); /* rgb(13, 22, 34) */
+  background-image: linear-gradient(
+    135deg,
+    rgba(76, 143, 255, 0.18),
+    rgba(56, 210, 126, 0.1)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+/* The single row/cell holds all centered content (.cta-inner equivalent). */
+.hero-cta > div > div {
+  margin: 0 auto;
+}
+
+/* Headline */
+.hero-cta h2 {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* Supporting copy -- constrained and centered */
+.hero-cta p {
+  max-width: 480px;
+  margin: 0 auto 28px;
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  line-height: 27.2px;
+  color: var(--muted); /* rgb(159, 176, 192) */
+}
+
+/* Badge row: JS groups the store-badge links into .cta-badges. */
+.hero-cta .cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Reset EDS button auto-decoration for the store-badge links so the
+   badge image renders at its natural size (NOT underlined text/full-width). */
+.hero-cta .cta-badges a.button,
+main .hero-cta .cta-badges a.button:any-link,
+.hero-cta .cta-badges a:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  text-decoration: none;
+  white-space: normal;
+  overflow: visible;
+}
+
+.hero-cta .cta-badges a picture,
+.hero-cta .cta-badges a img {
+  display: block;
+}
+
+/* Store-badge images render at natural badge height */
+.hero-cta img {
+  width: auto;
+  height: 48px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .hero-cta {
+    padding: 56px 48px;
+  }
+
+  .hero-cta h2 {
+    font-size: 40px;
+    line-height: 64px;
+    letter-spacing: -0.8px;
+  }
+
+  .hero-cta img {
+    height: 64px;
+  }
+}

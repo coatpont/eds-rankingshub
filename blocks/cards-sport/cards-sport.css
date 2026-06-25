@@ -1,0 +1,73 @@
+/* Block: cards-sport -- image-led sport cards with overlaid label + name
+   Design extracted from https://rankingshub.app/ #sports .sports-grid */
+
+.cards-sport > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+@media (width >= 900px) {
+  .cards-sport > ul {
+    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  }
+}
+
+/* card: positioning context, rounded, bordered, elevated */
+.cards-sport > ul > li {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background-color: transparent;
+}
+
+/* image fills the whole card (near-square) */
+.cards-sport .cards-sport-card-image {
+  line-height: 0;
+}
+
+.cards-sport .cards-sport-card-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* body: absolute overlay anchored to the bottom with a dark gradient */
+.cards-sport .cards-sport-card-body {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 40px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+}
+
+/* federation label: small uppercase mono eyebrow */
+.cards-sport .cards-sport-card-body p {
+  margin: 0 0 4px;
+  font-family: var(--mono-font-family);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* sport name */
+.cards-sport .cards-sport-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: rgb(255, 255, 255);
+}

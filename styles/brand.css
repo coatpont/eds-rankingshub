@@ -1,0 +1,39 @@
+/* rankingshub.app brand design tokens (extracted from source) */
+:root {
+  /* fonts */
+  --heading-font-family: "Space Grotesk", system-ui, sans-serif;
+  --body-font-family: "Hanken Grotesk", system-ui, sans-serif;
+  --mono-font-family: "JetBrains Mono", ui-monospace, monospace;
+
+  /* core palette */
+  --canvas: #0a1019;
+  --blue: #4c8fff;
+  --green: #38d27e;
+  --ink: #eef3f8;
+  --muted: #9fb0c0;
+  --muted-2: #7e90a1;
+  --muted-3: #5d6e7e;
+  --card-bg: rgb(255 255 255 / 2.5%);
+  --stroke: rgb(255 255 255 / 7%);
+  --shadow: 0 24px 60px rgb(0 0 0 / 40%);
+  --radius: 20px;
+
+  /* mapped EDS tokens */
+  --background-color: var(--canvas);
+  --text-color: var(--ink);
+  --link-color: #9e9eff;
+  --link-hover-color: #c2c2ff;
+  --light-color: #0d1622;
+  --dark-color: #060b12;
+
+  /* spacing */
+  --nav-height: 80px;
+
+  /* heading sizes (desktop) */
+  --heading-size-xxl: 72px;
+  --heading-size-xl: 36px;
+  --heading-size-l: 20px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}

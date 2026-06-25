@@ -1,20 +1,113 @@
+/* rankingshub.app footer — transparent over dark canvas, 4-col grid + bottom bar */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: transparent;
+  border-top: 1px solid var(--stroke);
+  color: var(--ink);
+  font-family: var(--body-font-family);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-footer .footer p {
+/* link grid */
+footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 48px 24px 24px;
+}
+
+footer .footer-col p {
+  margin: 0 0 12px;
+}
+
+/* column titles (Product / Company / Get the app) */
+footer .footer-col:not(.footer-brand) > p:first-child {
+  color: var(--muted-3);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.04px;
+}
+
+footer .footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer .footer-col li {
+  margin: 0;
+}
+
+footer .footer-col a {
+  color: var(--muted);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer .footer-col a:hover {
+  color: var(--ink);
+}
+
+/* brand column */
+footer .footer-brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+footer .footer-brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+footer .footer-brand p:last-child {
+  color: var(--muted-2);
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+  max-width: 300px;
+}
+
+/* bottom bar */
+footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgb(255 255 255 / 5%);
+  padding: 20px 24px 40px;
+  color: var(--muted-2);
+  font-size: 14px;
+}
+
+footer .footer-bottom p {
   margin: 0;
 }
 
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer-grid {
+    grid-template-columns: 336px 240px 240px 240px;
+    gap: 40px;
+    padding: 48px 32px 24px;
+  }
+
+  footer .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px 40px;
   }
 }

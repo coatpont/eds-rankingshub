@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-policy",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-25T11:13:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://rankingshub.app/privacy/",
+    "originPage": "RankingsHub Privacy & Terms legal page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "policy-panels",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + bullet list or paragraph (+ optional inline link)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "legal/policy text panels (privacy, terms, support)",
+      "stacked text-only content cards with a heading and list/paragraph",
+      "FAQ-style or section-grouped long-form text on a dark theme"
+    ],
+    "notSuitableFor": [
+      "image-led thumbnail grids (use cards-sport)",
+      "icon-led feature grids with images (use cards-feature)",
+      "cards requiring cover images or CTAs"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/privacy/index", "/support/index"],
+    "reuseCount": 2,
+    "lastUsed": "2026-06-25T11:15:30.000Z"
+  }
+}

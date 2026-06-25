@@ -1,0 +1,143 @@
+/* Block: hero-app -- app-intro hero (content + phone screenshot) */
+/* Values extracted from rankingshub.app/.hero-outer computed styles. */
+
+/* full-width: drop the section max-width constraint */
+.hero-app-wrapper {
+  max-width: 100% !important;
+}
+
+/*
+ * Decorated DOM:
+ *   .hero-app
+ *     > div            (row 1) > div > 8x <p><picture>   screenshots
+ *     > div            (row 2) > div > eyebrow p, h1, sub p, 2x badge p
+ * The two rows act as the two layout columns.
+ */
+.hero-app {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-app > div {
+  min-width: 0;
+}
+
+/* the single inner wrapper inside each row */
+.hero-app > div > div {
+  min-width: 0;
+}
+
+/* ---- screenshots row (phone mockup) ---- */
+.hero-app > div:first-child > div {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-app > div:first-child p {
+  margin: 0;
+}
+
+/* source shows one animated phone; render only the first screenshot */
+.hero-app > div:first-child p:not(:first-child) {
+  display: none;
+}
+
+.hero-app > div:first-child img {
+  width: auto;
+  height: auto;
+  max-height: 474px;
+  object-fit: contain;
+}
+
+/* ---- content row ---- */
+.hero-app > div:last-child > div {
+  display: block;
+}
+
+/* eyebrow pill (first paragraph) */
+.hero-app > div:last-child p:first-child {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  margin: 0 0 22px;
+  padding: 7px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: rgb(156, 195, 255);
+  background-color: rgba(76, 143, 255, 0.1);
+  border: 1px solid rgba(76, 143, 255, 0.3);
+  border-radius: 100px;
+}
+
+.hero-app h1 {
+  margin: 0 0 24px;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+/* subheading (paragraph after the h1, not a badge) */
+.hero-app > div:last-child p:nth-child(3) {
+  max-width: 520px;
+  margin: 0 0 34px;
+  font-family: var(--body-font-family);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 29.45px;
+  color: var(--muted);
+}
+
+/* ---- app-store badges (side by side on one row) ---- */
+.hero-app > div:last-child p:has(a[href*="apps.apple"]),
+.hero-app > div:last-child p:has(a[href*="play.google"]) {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 14px 0 0;
+}
+
+.hero-app a[href*="apps.apple"],
+.hero-app a[href*="play.google"] {
+  display: inline-block;
+}
+
+.hero-app a[href*="apps.apple"] img,
+.hero-app a[href*="play.google"] img {
+  width: auto;
+  height: 48px;
+}
+
+@media (width >= 900px) {
+  .hero-app {
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+    padding: 64px 32px 48px;
+  }
+
+  /* content left, screenshots right */
+  .hero-app > div:first-child {
+    order: 2;
+    flex: 0 0 492px;
+  }
+
+  .hero-app > div:last-child {
+    order: 1;
+    flex: 1 1 auto;
+  }
+
+  .hero-app h1 {
+    font-size: 72px;
+    line-height: 73.44px;
+    letter-spacing: -1.8px;
+  }
+}

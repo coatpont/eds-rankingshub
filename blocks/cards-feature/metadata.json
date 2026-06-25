@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-25T11:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://rankingshub.app/",
+    "originPage": "RankingsHub marketing landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature-grid",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + title + description",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "icon-led feature/benefit grids",
+      "cards with a small icon, title heading, and short paragraph",
+      "product capability highlights"
+    ],
+    "notSuitableFor": [
+      "image-led thumbnail grids",
+      "cards requiring large cover images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T11:07:00.000Z"
+  }
+}
