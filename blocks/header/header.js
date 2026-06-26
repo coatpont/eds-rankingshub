@@ -33,28 +33,74 @@ function toggleMenu(nav, forceExpanded = null) {
 }
 
 /**
+ * Returns the locale code from the current URL path, or 'en' for the root locale.
+ * Matches the first path segment when it looks like a locale code (2-letter or BCP-47 subtag).
+ * @returns {string}
+ */
+function getLocale() {
+  const match = window.location.pathname.match(/^\/([a-z]{2}(?:-[a-z]+)?)(?:\/|$)/i);
+  return match ? match[1].toLowerCase() : 'en';
+}
+
+/**
+ * Fetches nav translations from /translations.json. Returns {} on failure.
+ * @returns {Promise<Object>}
+ */
+async function fetchTranslations() {
+  try {
+    const resp = await fetch('/translations.json');
+    if (resp.ok) return resp.json();
+  } catch (e) { /* fall through */ }
+  return {};
+}
+
+/**
+ * Prefixes a root-relative href with the current locale.
+ * English paths and external URLs are returned unchanged.
+ * @param {string} href
+ * @param {string} locale
+ * @returns {string}
+ */
+function localizeHref(href, locale) {
+  if (!href || locale === 'en' || href.startsWith('http') || href.startsWith(`/${locale}`)) {
+    return href;
+  }
+  if (href === '/') return `/${locale}/`;
+  return `/${locale}${href}`;
+}
+
+/**
  * Build a native language <select> from a list of language links.
+ * Active option is determined by the current locale, not exact pathname,
+ * so it remains correct on any subpage.
  * @param {Element} listSection the nav section holding language anchors
+ * @param {string} locale the current locale code
+ * @param {Object} t translations for the current locale
  * @returns {Element} the language switcher wrapper
  */
-function buildLanguageSelect(listSection) {
+function buildLanguageSelect(listSection, locale, t) {
+  const langNames = t.languages || {};
+  const labelText = t.language || 'Language';
+
   const wrapper = document.createElement('div');
   wrapper.className = 'nav-lang';
 
   const label = document.createElement('label');
   label.setAttribute('for', 'nav-lang-select');
-  label.textContent = 'Language';
+  label.textContent = labelText;
 
   const select = document.createElement('select');
   select.id = 'nav-lang-select';
-  select.setAttribute('aria-label', 'Language');
+  select.setAttribute('aria-label', labelText);
 
-  const current = window.location.pathname;
   listSection.querySelectorAll('a').forEach((a) => {
     const option = document.createElement('option');
-    option.value = a.getAttribute('href');
-    option.textContent = a.textContent.trim();
-    if (option.value === current) option.selected = true;
+    const href = a.getAttribute('href');
+    option.value = href.endsWith('/') ? href : `${href}/`;
+    const targetLocale = option.value === '/' ? 'en' : option.value.replace(/^\/|\/$/g, '');
+    option.textContent = langNames[targetLocale] || a.textContent.trim();
+    const isEnglish = option.value === '/';
+    option.selected = isEnglish ? locale === 'en' : option.value === `/${locale}/`;
     select.append(option);
   });
 
@@ -71,6 +117,9 @@ function buildLanguageSelect(listSection) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  const locale = getLocale();
+  const translationsPromise = fetchTranslations();
+
   const resp = await fetch('/content/nav.plain.html');
   let html = '';
   if (resp.ok) {
@@ -79,6 +128,9 @@ export default async function decorate(block) {
     const fallback = await fetch('/nav.plain.html');
     if (fallback.ok) html = await fallback.text();
   }
+
+  const translations = await translationsPromise;
+  const t = translations[locale] || {};
 
   const fragment = document.createElement('div');
   fragment.innerHTML = html;
@@ -90,23 +142,32 @@ export default async function decorate(block) {
   const sections = [...fragment.children];
   const [brandSection, linksSection, langSection] = sections;
 
-  // Brand
+  // Brand — localize the home link for non-English locales
   const navBrand = document.createElement('div');
   navBrand.className = 'nav-brand';
-  if (brandSection) navBrand.append(...brandSection.childNodes);
+  if (brandSection) {
+    navBrand.append(...brandSection.childNodes);
+    navBrand.querySelectorAll('a').forEach((a) => {
+      a.setAttribute('href', localizeHref(a.getAttribute('href'), locale));
+    });
+  }
 
-  // Nav links
+  // Nav links — translate text and localize hrefs
   const navSections = document.createElement('div');
   navSections.className = 'nav-sections';
   if (linksSection) navSections.append(...linksSection.childNodes);
   navSections.querySelectorAll('a').forEach((a) => {
-    if (a.getAttribute('href') === window.location.pathname) a.classList.add('active');
+    const key = a.textContent.trim().toLowerCase();
+    if (t[key]) a.textContent = t[key];
+    const localHref = localizeHref(a.getAttribute('href'), locale);
+    a.setAttribute('href', localHref);
+    if (localHref === window.location.pathname) a.classList.add('active');
   });
 
   // Tools (language selector built from the language section)
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
-  if (langSection) navTools.append(buildLanguageSelect(langSection));
+  if (langSection) navTools.append(buildLanguageSelect(langSection, locale, t));
 
   // Hamburger (mobile)
   const hamburger = document.createElement('div');

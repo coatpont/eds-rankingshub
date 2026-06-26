@@ -1,5 +1,4 @@
-/* Block: hero-app -- app-intro hero (content + phone screenshot) */
-/* Values extracted from rankingshub.app/.hero-outer computed styles. */
+/* Block: hero-app -- app-intro hero (content + phone screenshot carousel) */
 
 /* full-width: drop the section max-width constraint */
 .hero-app-wrapper {
@@ -9,9 +8,8 @@
 /*
  * Decorated DOM:
  *   .hero-app
- *     > div            (row 1) > div > 8x <p><picture>   screenshots
- *     > div            (row 2) > div > eyebrow p, h1, sub p, 2x badge p
- * The two rows act as the two layout columns.
+ *     > div  (row 1) > div > .hero-app-carousel > 8x <picture>   screenshots
+ *     > div  (row 2) > div > eyebrow p, h1, sub p, 2x badge p
  */
 .hero-app {
   max-width: 1240px;
@@ -26,30 +24,38 @@
   min-width: 0;
 }
 
-/* the single inner wrapper inside each row */
 .hero-app > div > div {
   min-width: 0;
 }
 
-/* ---- screenshots row (phone mockup) ---- */
+/* ---- screenshots row (carousel) ---- */
 .hero-app > div:first-child > div {
   display: flex;
   justify-content: center;
 }
 
-.hero-app > div:first-child p {
-  margin: 0;
+/* Images are 1320×2868 — carousel sized to max-height 474px */
+.hero-app-carousel {
+  position: relative;
+  width: 218px;
+  height: 474px;
+  flex-shrink: 0;
 }
 
-/* source shows one animated phone; render only the first screenshot */
-.hero-app > div:first-child p:not(:first-child) {
-  display: none;
+.hero-app-carousel picture {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.hero-app > div:first-child img {
-  width: auto;
-  height: auto;
-  max-height: 474px;
+.hero-app-carousel picture.is-active {
+  opacity: 1;
+}
+
+.hero-app-carousel img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -79,14 +85,21 @@
 .hero-app h1 {
   margin: 0 0 24px;
   font-family: var(--heading-font-family);
-  font-size: 36px;
+  font-size: clamp(44px, 5.4vw, 72px);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.025em;
   color: var(--ink);
 }
 
-/* subheading (paragraph after the h1, not a badge) */
+.hero-app-gradient {
+  background: linear-gradient(120deg, #4c8fff, #38d27e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* subheading (paragraph after the h1) */
 .hero-app > div:last-child p:nth-child(3) {
   max-width: 520px;
   margin: 0 0 34px;
@@ -97,7 +110,7 @@
   color: var(--muted);
 }
 
-/* ---- app-store badges (side by side on one row) ---- */
+/* ---- app-store badges ---- */
 .hero-app > div:last-child p:has(a[href*="apps.apple"]),
 .hero-app > div:last-child p:has(a[href*="play.google"]) {
   display: inline-block;
@@ -135,9 +148,13 @@
     flex: 1 1 auto;
   }
 
+  /* Larger carousel on desktop */
+  .hero-app-carousel {
+    width: 278px;
+    height: 604px;
+  }
+
   .hero-app h1 {
-    font-size: 72px;
-    line-height: 73.44px;
-    letter-spacing: -1.8px;
+    line-height: 1.02;
   }
 }
