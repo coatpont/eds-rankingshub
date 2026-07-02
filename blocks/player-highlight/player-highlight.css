@@ -1,5 +1,9 @@
 /* Block: player-highlight — featured athlete card (photo + name, country, sport) */
 
+.player-highlight {
+  margin-block: 48px;
+}
+
 .player-highlight > div {
   display: flex;
   flex-direction: column;
