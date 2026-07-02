@@ -1,0 +1,108 @@
+/* Block: player-highlight — featured athlete card (photo + name, country, sport) */
+
+.player-highlight > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background-color: var(--card-bg);
+}
+
+/* ---- photo ---- */
+.player-highlight .player-highlight-image {
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.player-highlight .player-highlight-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ---- info ---- */
+.player-highlight .player-highlight-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player-highlight .player-first-name,
+.player-highlight .player-last-name {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.player-highlight .player-first-name {
+  font-size: var(--heading-font-size-l);
+  color: var(--muted);
+}
+
+.player-highlight .player-last-name {
+  font-size: var(--heading-font-size-xxl);
+}
+
+.player-highlight .player-country,
+.player-highlight .player-sport {
+  margin: 0;
+  font-family: var(--mono-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.player-highlight .player-country {
+  margin-top: 8px;
+}
+
+.player-highlight .player-sport {
+  color: var(--blue);
+}
+
+@media (width >= 600px) {
+  .player-highlight > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .player-highlight .player-highlight-image {
+    flex: 0 0 280px;
+  }
+
+  .player-highlight .player-highlight-image img {
+    aspect-ratio: unset;
+    height: 100%;
+  }
+
+  .player-highlight .player-highlight-info {
+    padding: 32px;
+    justify-content: center;
+  }
+}
+
+@media (width >= 900px) {
+  .player-highlight .player-highlight-image {
+    flex: 0 0 360px;
+  }
+
+  .player-highlight .player-highlight-info {
+    padding: 40px;
+  }
+
+  .player-highlight .player-first-name {
+    font-size: var(--heading-font-size-xl);
+  }
+}

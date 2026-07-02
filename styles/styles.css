@@ -102,9 +102,21 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); letter-spacing: -0.025em; }
-h2 { font-size: var(--heading-font-size-xl); letter-spacing: -0.02em; line-height: 1.2; }
-h3 { font-size: var(--heading-font-size-l); line-height: 1.4; }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+  line-height: 1.4;
+}
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
@@ -166,19 +178,6 @@ p.button-wrapper {
 }
 
 main .button-container { display: inline; }
-
-main a.button:any-link {
-  background: none;
-  border: none;
-  border-radius: 0;
-  color: var(--link-color);
-  font-size: inherit;
-  font-weight: inherit;
-  padding: 0;
-  margin: 0;
-  text-decoration: underline;
-  white-space: normal;
-}
 
 a.button:any-link,
 button.button {
@@ -286,6 +285,19 @@ button.button.accent:disabled:focus-visible {
   background-color: var(--light-color);
   border-color: var(--light-color);
   color: var(--dark-color);
+}
+
+main a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  white-space: normal;
 }
 
 main img {

@@ -7,10 +7,10 @@
   background-color: var(--light-color); /* rgb(13, 22, 34) */
   background-image: linear-gradient(
     135deg,
-    rgba(76, 143, 255, 0.18),
-    rgba(56, 210, 126, 0.1)
+    rgb(76 143 255 / 18%),
+    rgb(56 210 126 / 10%)
   );
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255 255 255 / 10%);
   border-radius: 28px;
   padding: 40px 24px;
   text-align: center;
@@ -67,17 +67,17 @@ main .hero-cta .cta-badges a.button:any-link,
   overflow: visible;
 }
 
-.hero-cta .cta-badges a picture,
-.hero-cta .cta-badges a img {
-  display: block;
-}
-
 /* Store-badge images render at natural badge height */
 .hero-cta img {
   width: auto;
   height: 48px;
   max-width: 100%;
   object-fit: contain;
+}
+
+.hero-cta .cta-badges a picture,
+.hero-cta .cta-badges a img {
+  display: block;
 }
 
 @media (width >= 900px) {

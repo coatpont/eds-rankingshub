@@ -6,7 +6,6 @@ header .nav-wrapper {
   width: 100%;
   background-color: rgb(10 16 25 / 70%);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--stroke);
 }
 

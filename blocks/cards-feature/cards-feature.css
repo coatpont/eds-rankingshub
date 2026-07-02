@@ -26,20 +26,20 @@
 }
 
 .cards-feature > ul > li {
-  background-color: var(--card, rgba(255, 255, 255, 0.025));
-  border: 1px solid var(--stroke, rgba(255, 255, 255, 0.07));
+  background-color: var(--card, rgb(255 255 255 / 2.5%));
+  border: 1px solid var(--stroke, rgb(255 255 255 / 7%));
   border-radius: 18px;
   padding: 26px;
-}
-
-/* The empty (icon) cell collapses gracefully -- no awkward gap, no image box. */
-.cards-feature > ul > li > .cards-feature-card-body:empty {
-  display: none;
 }
 
 /* content cell holds the title + description */
 .cards-feature .cards-feature-card-body {
   margin: 0;
+}
+
+/* The empty (icon) cell collapses gracefully -- no awkward gap, no image box. */
+.cards-feature > ul > li > .cards-feature-card-body:empty {
+  display: none;
 }
 
 .cards-feature .cards-feature-card-body h3 {
