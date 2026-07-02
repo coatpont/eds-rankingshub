@@ -76,9 +76,9 @@
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 1px;
-  color: rgb(156, 195, 255);
-  background-color: rgba(76, 143, 255, 0.1);
-  border: 1px solid rgba(76, 143, 255, 0.3);
+  color: rgb(156 195 255);
+  background-color: rgb(76 143 255 / 10%);
+  border: 1px solid rgb(76 143 255 / 30%);
   border-radius: 100px;
 }
 
@@ -94,7 +94,6 @@
 
 .hero-app-gradient {
   background: linear-gradient(120deg, #4c8fff, #38d27e);
-  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }

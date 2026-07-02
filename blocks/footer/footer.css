@@ -23,15 +23,6 @@ footer .footer-col p {
   margin: 0 0 12px;
 }
 
-/* column titles (Product / Company / Get the app) */
-footer .footer-col:not(.footer-brand) > p:first-child {
-  color: var(--muted-3);
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.04px;
-}
-
 footer .footer-col ul {
   list-style: none;
   margin: 0;
@@ -45,15 +36,19 @@ footer .footer-col li {
   margin: 0;
 }
 
-footer .footer-col a {
-  color: var(--muted);
-  font-size: 14.5px;
-  text-decoration: none;
-  transition: color 0.15s ease;
+/* bottom bar */
+footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgb(255 255 255 / 5%);
+  padding: 20px 24px 40px;
+  color: var(--muted-2);
+  font-size: 14px;
 }
 
-footer .footer-col a:hover {
-  color: var(--ink);
+footer .footer-bottom p {
+  margin: 0;
 }
 
 /* brand column */
@@ -82,19 +77,24 @@ footer .footer-brand p:last-child {
   max-width: 300px;
 }
 
-/* bottom bar */
-footer .footer-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-top: 1px solid rgb(255 255 255 / 5%);
-  padding: 20px 24px 40px;
-  color: var(--muted-2);
-  font-size: 14px;
+footer .footer-col a {
+  color: var(--muted);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-footer .footer-bottom p {
-  margin: 0;
+footer .footer-col a:hover {
+  color: var(--ink);
+}
+
+/* column titles (Product / Company / Get the app) */
+footer .footer-col:not(.footer-brand) > p:first-child {
+  color: var(--muted-3);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.04px;
 }
 
 @media (width >= 900px) {
